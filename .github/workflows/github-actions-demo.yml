@@ -20,4 +20,4 @@ jobs:
         env: 
           super_secret: ${{ secrets.TEST_SECRET_TOKEN }}
         run: |
-          example-command "$super_secret"
+          echo "$super_secret"
