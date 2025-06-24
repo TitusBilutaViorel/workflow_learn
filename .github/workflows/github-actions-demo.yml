@@ -16,8 +16,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - name: Retrive secret
+      - name: Use secret safely
         env: 
-          super_secret: ${{ secrets.TEST_SECRET_TOKEN }}
+          SUPER_SECRET: ${{ secrets.TEST_SECRET_TOKEN }}
         run: |
-          echo "$super_secret"
+          if [ -n "$SUPER_SECRET" ]; then
+            echo "✅ Secret is set"
+          else
+            echo "❌ Secret is missing"
+            exit 1
+          fi
