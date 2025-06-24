@@ -18,6 +18,6 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: Retrive secret
         env: 
-          super_secret: ${{ secrets.SUPERSECRET }}
+          super_secret: ${{ secrets.TEST_SECRET_TOKEN }}
         run: |
           example-command "$super_secret"
